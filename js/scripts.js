@@ -58,7 +58,15 @@ var locationList = new LocationList();
 // locationList.addLocation(userEntry1);
 // locationList.addLocation(userEntry2);
 // console.log(locationList);
+function displayEntryDetails(locationListDisplay){
+  var entryList = $("ul#locations");
+  var htmlForEntryList = "";
 
+  locationListDisplay.locations.forEach(function(location){
+    htmlForEntryList += "<li id=" + location.id + ">" + location.locationCity + ", " + location.locationCountry + "</li>";
+  });
+  entryList.html(htmlForEntryList);
+}
 
 
 $(document).ready(function(){
@@ -69,11 +77,15 @@ $(document).ready(function(){
     var inputtedLandmark = $("#landmarks").val();
     var inputtedYear = $("#time-stamp").val();
     var inputtedNotes = $("#notes").val();
-    var newUserEnty = new userEntry(inputtedCity, inputtedCountry, inputtedLandmark, inputtedYear,inputtedNotes);
+    var newUserEntry = new UserEntry(inputtedCity, inputtedCountry, inputtedLandmark, inputtedYear,inputtedNotes);
+    
+    
+    
     locationList.addLocation(newUserEntry);
-    console.log(locationList.locations);
-  })
-})
+    console.log(newUserEntry);
+    displayEntryDetails(locationList);
+  });
+});
 
 
 
