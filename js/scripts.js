@@ -70,13 +70,34 @@ function displayEntryDetails(locationListDisplay){
 
 function attachEntryListeners() {
   $("ul#locations").on("click", "li", function(){
-    console.log("The id of this <li> is " + this.id + ".");
+    showLocation(this.id);
+  });
+  $("#buttons").on("click", ".deleteButton", function() {
+    locationList.deleteLocation(this.id);
+    $("#show-location").hide();
+    displayEntryDetails(locationList);
   });
 }
-
+function showLocation(locationId){
+  var location = locationList.findLocation(locationId);
+  $("#show-location").show();
+  $(".location-city").html(location.locationCity)
+  $(".location-country").html(location.locationCountry)
+  $(".landmarks").html(location.landmarks)
+  $(".time-stamp").html(location.timeStamp)
+  $(".notes").html(location.userNotes)
+  var buttons = $("#buttons");
+  buttons.empty();
+  buttons.append("<button class='deleteButton' id=" + location.id + ">Delete</button>");
+}
 
 $(document).ready(function(){
   attachEntryListeners();
+  // $("#show-location").click(function() {
+  //   alert("clicked!");
+  //   $(this).children("p").slideToggle();
+  // });
+
   $("#user-entry").submit(function(event){
     event.preventDefault();
     var inputtedCity = $("#location-city").val();
