@@ -68,8 +68,15 @@ function displayEntryDetails(locationListDisplay){
   entryList.html(htmlForEntryList);
 }
 
+function attachEntryListeners() {
+  $("ul#locations").on("click", "li", function(){
+    console.log("The id of this <li> is " + this.id + ".");
+  });
+}
+
 
 $(document).ready(function(){
+  attachEntryListeners();
   $("#user-entry").submit(function(event){
     event.preventDefault();
     var inputtedCity = $("#location-city").val();
