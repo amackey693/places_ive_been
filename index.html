@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
-  <title>Places I have been</title>
-  <script src="js/jQuery3.4.1.js"></script>
-  <script src="js/scripts.js"></script>
-</head>
-<body>
-  
-</body>
+<html>
+  <head> 
+    <script src="js/jQuery3.4.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <title>Places I have been</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>A List of Places I Have Been!</h1>
+      <h2>Add a New Location:</h2>
+
+      <form id="user-entry">
+        <label for="location-city">Enter City:</label>
+        <input type="text" id="location-city">
+        <label for="location-country">Enter Country/State:</label>
+        <input type="text" id="location-country">
+        <label for="landmarks">Enter Landmarks Visited:</label> 
+        <input type="text" id="landmarks">
+        <label for="time-stamp">When did you visit?:</label>
+        <input type="date" id="time-stamp">
+        <label for="notes">Enter any additional notes:</label>
+        <input type="text" id="notes">
+        <button type="submit">Add</button>
+      </form>
+
+      <h2>Locations List:</h2>
+      <ul id="locations">
+      </ul>
+
+      <div id="show-location">
+        <p>City:<span class="location-city"></span></p>
+        <p>Country:<span class="location-country"></span></p>
+        <p>Landmarks Visited:<span class="landmarks"></span></p>
+        <p>Date Visited:<span class="time-stamp"></span></p>
+        <p>Notes:<span class="notes"></span></p>
+      </div>
+      
+    </div>
+  </body>
 </html>

@@ -61,6 +61,21 @@ var locationList = new LocationList();
 
 
 
+$(document).ready(function(){
+  $("#user-entry").submit(function(event){
+    event.preventDefault();
+    var inputtedCity = $("#location-city").val();
+    var inputtedCountry = $("#location-country").val();
+    var inputtedLandmark = $("#landmarks").val();
+    var inputtedYear = $("#time-stamp").val();
+    var inputtedNotes = $("#notes").val();
+    var newUserEnty = new userEntry(inputtedCity, inputtedCountry, inputtedLandmark, inputtedYear,inputtedNotes);
+    locationList.addLocation(newUserEntry);
+    console.log(locationList.locations);
+  })
+})
+
+
 
 
 
