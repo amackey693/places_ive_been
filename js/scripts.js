@@ -72,6 +72,7 @@ function attachEntryListeners() {
   $("ul#locations").on("click", "li", function(){
     showLocation(this.id);
   });
+
   $("#buttons").on("click", ".deleteButton", function() {
     locationList.deleteLocation(this.id);
     $("#show-location").hide();
@@ -93,9 +94,8 @@ function showLocation(locationId){
 
 $(document).ready(function(){
   attachEntryListeners();
-  // $("#show-location").click(function() {
-  //   alert("clicked!");
-  //   $(this).children("p").slideToggle();
+  // $(".toggle").click(function() {
+  //   $(this).children("#show-location").slideUp();
   // });
 
   $("#user-entry").submit(function(event){
@@ -106,8 +106,6 @@ $(document).ready(function(){
     var inputtedYear = $("#time-stamp").val();
     var inputtedNotes = $("#notes").val();
     var newUserEntry = new UserEntry(inputtedCity, inputtedCountry, inputtedLandmark, inputtedYear,inputtedNotes);
-    
-    
     
     locationList.addLocation(newUserEntry);
     console.log(newUserEntry);
